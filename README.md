@@ -11,4 +11,4 @@ Kiệt: hướng dẫn sử dụng Text - to - speech
 9. Đánh dòng lệnh này vào $ <Địa chỉ thư mục các ông tự làm nhá>\Text-to-speech-api-fpt>python app.py
 10. Ngôi chờ tí, sau khi chạy xong mấy thứ ngầu lòi thì đi vào thư mục input, trong đấy có file full.mp3 đó, mở lên và cảm nhận đi <3
 
-- From PhanKiet with disapointing writting skill -
+- From PhanKiet with disapointing writting skill
