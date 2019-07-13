@@ -3,17 +3,18 @@ import speech_recognition as sr
 import os
 import webbrowser
 import smtplib
-import pyttsx3
 from pygame import mixer
 
 count = 0
+
+mixer.init()
 
 def talkToMe(audio):
     global count
     print(audio)
     text_to_speech = gTTS(text=audio, lang='vi')
     text_to_speech.save(f'{count%2}.mp3')
-    mixer.init()
+
     mixer.music.load(f'{count%2}.mp3')
     mixer.music.play()
     count += 1
@@ -30,7 +31,7 @@ def myCommand():
         audio = r.listen(source)
 
     try:
-        command = r.recognize_google(audio)
+        command = r.recognize_google(audio, language='vi-VI')
         print('You said ' + command + '/n')
 
     #loop back to continue listening for commands
@@ -45,18 +46,15 @@ def myCommand():
 
 def assistant(command):
 
-    if 'open Facebook' in command:
-        chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+    if 'Mở Facebook' in command:
+        chrome_path = ''
         url = 'https://www.facebook.com/'
-        webbrowser.get(chrome_path).open(url)
+        webbrowser.open(url)
 
-    if 'hello' in command:
+    if 'Chào bạn' in command:
          talkToMe('Chào')
 
-talkToMe('Sẵn sàng')
+talkToMe("Hello Mr. Pussy Face")
 
 while True:
     assistant(myCommand())
-        
-
-    
