@@ -1,10 +1,11 @@
 <?php
-
+function get_mp3($postdata, $file_name){
 $api_key = '0bf528396c8146268c5eb01bf1f51bd8';
 $voice = 'female';
 $speed = 0;
-$prosody = 0;
-$postdata = 'Hay quá đức ơi';
+$prosody = 1;
+
+$postdata = str_replace('&nbsp;', '', $postdata);
 
 $url = 'http://api.openfpt.vn/text2speech/v4?api_key='.$api_key.'&voice='.$voice.'&speed='.$speed.'&prosody='.$prosody;
 
@@ -27,5 +28,32 @@ curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
 
 //execute post
 $result = curl_exec($ch);
-echo $result;
+curl_close($ch);
+
+//json parse 
+$json = json_decode($result);
+
+//download mp3 file
+$file_url = $json->async;
+
+if (!file_exists('audio')) {
+    mkdir('audio', 0777, true);
+}
+if (!file_exists('audio/title')) {
+    mkdir('audio/title', 0777, true);
+}
+$ch = curl_init($file_url);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_NOBODY, 0);
+curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+$output = curl_exec($ch);
+$status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+if ($status == 200) {
+    file_put_contents('audio/'. $file_name .'.mp3', $output);
+}
+}
 ?>
