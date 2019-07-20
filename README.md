@@ -1,5 +1,5 @@
 # Neo Blind Helper
-Readme mới đỡ ngứa mắt
+Readme mới đỡ ngứa mắt.
 Version 0.1 vừa lên sóng gồm 3 file chính: 
   HTMLDom.py: Thực hiện nhiệm vụ tách trích HTML. Gồm các hàm
     - get_mp3_file: Như cái tên, lấy link rồi tải về và ghép thành 1 file mp3 duy nhất
