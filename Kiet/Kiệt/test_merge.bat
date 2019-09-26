@@ -1,1 +1,0 @@
-ffmpeg -f concat -safe 0 -i dir/list.txt -c copy dir/full.mp3

@@ -1,3 +1,0 @@
-file '000.mp3'
-file '001.mp3'
-file 'full.mp3'
