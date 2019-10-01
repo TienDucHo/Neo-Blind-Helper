@@ -7,5 +7,3 @@ Version 0.2 vừa lên sóng gồm 3 file chính:
   NeoBlindHelper.py: file chính và quan trọng nhất
   GetCategory.py: Gồm hàm trả về mục báo thích hợp từ một string
 Cần cài đặt ffmpeg để hoạt động.
-
-
