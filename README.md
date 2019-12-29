@@ -1,6 +1,6 @@
-Version 0.3:
+Version 0.4:
 
-- Loại bỏ ffmpeg, lưu thành các file mp3 đơn lẻ trong thư mục tin và phát liên tiếp
-- Thêm file command để lưu các lệnh giọng nói cơ bản
-- Ngăn cách các request gửi API để hạn dòng yêu cầu (Điểm cần khắc phục để tăng tốc độ)
+- IMPORTANT: Fix bug download không được file. 
+- Fix bug đặt tên thư mục chưa kí tự đặc biệt
+
  
